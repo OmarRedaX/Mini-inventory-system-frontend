@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body { @apply bg-slate-950 text-slate-100 font-sans antialiased; }
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { @apply bg-slate-900; }
+  ::-webkit-scrollbar-thumb { @apply bg-slate-700 rounded-full; }
+}
+
+@layer components {
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg
+           text-sm font-medium transition-all duration-150
+           disabled:opacity-50 disabled:cursor-not-allowed
+           focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-950;
+  }
+  .btn-primary   { @apply btn bg-sky-500 hover:bg-sky-400 text-white focus:ring-sky-500; }
+  .btn-secondary { @apply btn bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 focus:ring-slate-500; }
+  .btn-danger    { @apply btn bg-red-600 hover:bg-red-500 text-white focus:ring-red-500; }
+  .btn-success   { @apply btn bg-emerald-600 hover:bg-emerald-500 text-white focus:ring-emerald-500; }
+  .btn-sm        { @apply px-2.5 py-1 text-xs rounded-md; }
+
+  .input {
+    @apply w-full px-3 py-2 bg-slate-900 border border-slate-700 rounded-lg
+           text-slate-100 text-sm placeholder-slate-500
+           focus:outline-none focus:ring-2 focus:ring-sky-500 focus:border-transparent
+           transition-all duration-150;
+  }
+
+  .card { @apply bg-slate-900 border border-slate-800 rounded-xl; }
+
+  .tag { @apply inline-flex items-center px-2 py-0.5 rounded-md text-xs font-mono font-medium; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fadeIn 0.18s ease-out; }
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(20px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.slide-in { animation: slideIn 0.2s ease-out; }
